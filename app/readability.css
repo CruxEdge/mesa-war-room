@@ -1,0 +1,21 @@
+/* Readability layer: calmer background, denser glass, stronger secondary text */
+:root {
+  --glass: rgba(255, 255, 255, 0.64); --glass-strong: rgba(255, 255, 255, 0.82); --glass-edge: rgba(255, 255, 255, 0.85);
+  --ink-2: #2f2558; --muted: #554a7c; --scrim: rgba(244, 239, 254, 0.52);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --glass: rgba(24, 14, 56, 0.6); --glass-strong: rgba(42, 27, 90, 0.72); --glass-edge: rgba(255, 255, 255, 0.14);
+    --ink-2: #ddd3fb; --muted: #b6aadd; --scrim: rgba(13, 6, 40, 0.52);
+  }
+}
+:root[data-theme='dark'] {
+  --glass: rgba(24, 14, 56, 0.6); --glass-strong: rgba(42, 27, 90, 0.72); --glass-edge: rgba(255, 255, 255, 0.14);
+  --ink-2: #ddd3fb; --muted: #b6aadd; --scrim: rgba(13, 6, 40, 0.52);
+}
+.orb { opacity: .55; filter: blur(90px); }
+.orb.o3 { opacity: .42; }
+.orb.o4 { opacity: .38; }
+.field::after { content: ''; position: absolute; inset: 0; background: var(--scrim); transition: background .6s ease; }
+.glass { background-image: linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,0) 45%); }
+.subj .fmt, .dim, .feed time { color: var(--muted); }
